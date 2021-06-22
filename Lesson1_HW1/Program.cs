@@ -18,25 +18,25 @@ namespace Lesson1_HW1
             Console.SetCursorPosition(30, 1);
             Console.WriteLine("Анкета");
             Console.WriteLine();
-            
+
             Console.WriteLine("Введи своё имя");
-            string firstName=Console.ReadLine();
-                        
+            string firstName = Console.ReadLine();
+
             Console.WriteLine("Введи свою фамилию");
-            string lastName=Console.ReadLine();
-            
+            string lastName = Console.ReadLine();
+
             Console.WriteLine("Введи свой возраст");
-            string age=Console.ReadLine();
-            
+            string age = Console.ReadLine();
+
             Console.WriteLine("Введи свой рост");
-            string height=Console.ReadLine();
-            
+            string height = Console.ReadLine();
+
             Console.WriteLine("Введи свой вес");
-            string weight=Console.ReadLine();
+            string weight = Console.ReadLine();
 
             Console.OutputEncoding = Encoding.UTF8;
-            Console.WriteLine(firstName+" "+ lastName+", "+ age);
-            Console.WriteLine("Рост: {0}, Вес: {1}",height,weight);
+            Console.WriteLine(firstName + " " + lastName + ", " + age);
+            Console.WriteLine("Рост: {0}, Вес: {1}", height, weight);
         }
     }
 }
