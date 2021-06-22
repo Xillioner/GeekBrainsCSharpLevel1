@@ -48,5 +48,18 @@ namespace Lesson1Test
             Assert.AreEqual(expectedIndexMass, actualIndexMass);
             Assert.AreEqual(expectedFirstName, actualFirstName);
         }
+        [TestMethod]
+        public void Lesson1_HW2Length()
+        {
+            HomeWork2 homeWork2 = new();
+            homeWork2.LengthFromAToB(new string[]{ "0","1","1","1"});
+            
+
+            double expectedLength = 1;
+
+            double actualLength = homeWork2.Length;
+
+            Assert.AreEqual(expectedLength, actualLength);
+        }
     }
 }
