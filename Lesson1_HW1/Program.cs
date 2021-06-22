@@ -14,29 +14,29 @@ namespace Lesson1_HW1
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Console.OutputEncoding = Encoding.UTF8;
+            HomeWork1 lesson1_HW1 = new(); Console.OutputEncoding = Encoding.UTF8;
             Console.SetCursorPosition(30, 1);
             Console.WriteLine("Анкета");
             Console.WriteLine();
 
             Console.WriteLine("Введи своё имя");
-            string firstName = Console.ReadLine();
+            lesson1_HW1.FirstName = Console.ReadLine();
 
             Console.WriteLine("Введи свою фамилию");
-            string lastName = Console.ReadLine();
+            lesson1_HW1.LastName = Console.ReadLine();
 
             Console.WriteLine("Введи свой возраст");
-            string age = Console.ReadLine();
+            lesson1_HW1.Age = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Введи свой рост");
-            string height = Console.ReadLine();
+            lesson1_HW1.Height = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Введи свой вес");
-            string weight = Console.ReadLine();
+            lesson1_HW1.Weight = Convert.ToInt32(Console.ReadLine());
 
-            Console.OutputEncoding = Encoding.UTF8;
-            Console.WriteLine(firstName + " " + lastName + ", " + age);
-            Console.WriteLine("Рост: {0}, Вес: {1}", height, weight);
+            Console.WriteLine(lesson1_HW1.OutputString1);
+            Console.WriteLine(lesson1_HW1.OutPutString2);
+
         }
     }
 }
