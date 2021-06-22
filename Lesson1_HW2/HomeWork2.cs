@@ -36,7 +36,7 @@ namespace Lesson1_HW2
 
         public int ShowMenu()
         {
-            Console.WriteLine("Меню:\n1 - Вычислить индекс массы тела.\n2 - Вычислить расстояние от точки до точки.");
+            Console.WriteLine("Меню:\n1 - Вычислить индекс массы тела.\n2 - Вычислить расстояние от точки до точки.\n3 - Выход");
             return Convert.ToInt32(Console.ReadLine());
         }
     }
