@@ -98,5 +98,21 @@ namespace Lesson1Test
             Assert.AreEqual(expectedObjVariable1, actualObjVariable1);
             Assert.AreEqual(expectedObjVariable2, actualObjVariable2);
         }
+        [TestMethod]
+        public void Lesson1_HW3PrintUserData()
+        {
+            HomeWork3 homeWork3 = new()
+            {
+                FirstName = "Evgeny",
+                LastName = "Konshin",
+                City = "Moscow",
+            };
+
+            var expectedUserData = "Evgeny Konshin, Moscow";
+
+            var actualUserData = homeWork3.UserData;
+
+            Assert.AreEqual(expectedUserData, actualUserData);
+        }
     }
 }
