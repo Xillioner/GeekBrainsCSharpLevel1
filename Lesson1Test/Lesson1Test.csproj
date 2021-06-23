@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Lesson1_HW1\Lesson1_HW1.csproj" />
     <ProjectReference Include="..\Lesson1_HW2\Lesson1_HW2.csproj" />
+    <ProjectReference Include="..\Lesson1_HW3\Lesson1_HW3.csproj" />
   </ItemGroup>
 
 </Project>

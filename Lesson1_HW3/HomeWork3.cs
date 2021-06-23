@@ -4,20 +4,28 @@ namespace Lesson1_HW3
 {
     public class HomeWork3
     {
-        public int variable1 { get; set; }
-        public int variable2 { get; set; }
-        public int variable3 { get; set; }
-        public string ObjVariable1 {get; set;}
+        public int? Variable1 { get; set; }
+        public int? Variable2 { get; set; }
+        public int? Variable3 { get; private set; }
+        public string ObjVariable1 { get; set; }
         public string ObjVariable2 { get; set; }
 
-        public HomeWork3()
+        public void ChangeThreeVariables()
         {
-            ChangeTwoVariables();
+            if (Variable1 == null || Variable2 == null)
+            {
+                Console.WriteLine("Переменные не инициализированы");
+                return;
+            }
+            Variable3 = Variable1;
+            Variable1 = Variable2;
+            Variable2 = Variable3;
+            Variable3 = null;
         }
 
-        private void ChangeTwoVariables()
+        public void ChangeTwoVariables()
         {
-            if (ObjVariable1==null||ObjVariable2==null)
+            if (ObjVariable1 == null || ObjVariable2 == null)
             {
                 Console.WriteLine("Переменные не инициализированы");
                 return;
