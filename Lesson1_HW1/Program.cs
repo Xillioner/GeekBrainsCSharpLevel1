@@ -14,7 +14,8 @@ namespace Lesson1_HW1
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            HomeWork1 lesson1_HW1 = new(); Console.OutputEncoding = Encoding.UTF8;
+            HomeWork1 lesson1_HW1 = new(); 
+            Console.OutputEncoding = Encoding.UTF8;
             Console.SetCursorPosition(30, 1);
             Console.WriteLine("Анкета");
             Console.WriteLine();
