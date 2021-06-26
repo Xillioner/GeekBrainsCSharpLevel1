@@ -2,7 +2,7 @@
 
 namespace Lesson2_HW2
 {
-    internal class Work
+    public class Work
     {
         public int NumberLength { get; private set; }
 
