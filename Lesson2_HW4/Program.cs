@@ -14,13 +14,13 @@ namespace Lesson2_HW4
     /// набрать вес или все в норме; 
     /// б) *Рассчитать, на сколько кг похудеть или сколько кг набрать для нормализации веса.
     /// </summary>
-    class Programs  
+    class Programs
     {
         private static Work work;
         static void Main(string[] args)
         {
             work = new();
-            
+
             string userLogin = null;
             string userPassword = null;
             work.Print(new int[] { 40, 0 });
@@ -72,8 +72,7 @@ namespace Lesson2_HW4
         }
         private static void Authorized()
         {
-            //work.Print(new int[] { 40, 0 }, new int[] { 3 });
-            work.Print(new int[] { 40, 0 },new int[] { 3, 2 });
+            work.Print(new int[] { 40, 0 }, new int[] { 3, 2 });
             Console.ReadKey();
 
         }

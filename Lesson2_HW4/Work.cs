@@ -118,12 +118,12 @@ namespace Lesson2_HW4
 
             if (IsAuthorized && indexBodyWeight > normalIndexMax)
             {
-                 extraIndex = indexBodyWeight - normalIndexMax;
+                extraIndex = indexBodyWeight - normalIndexMax;
                 extraWeight = extraIndex * Math.Pow(height, 2);
             }
-            else if(IsAuthorized&&indexBodyWeight<normalIndexMin)
+            else if (IsAuthorized && indexBodyWeight < normalIndexMin)
             {
-                extraIndex = normalIndexMin-indexBodyWeight;
+                extraIndex = normalIndexMin - indexBodyWeight;
                 extraWeight = extraIndex * Math.Pow(height, 2);
             }
         }
