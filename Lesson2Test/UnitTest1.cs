@@ -53,5 +53,18 @@ namespace Lesson2Test
             Assert.AreEqual(expectedElementCounter, actualElementCounter);
 
         }
+        [TestMethod]
+        public void Lesson2_HW2SummOfOddPositiveNumbers()
+        {
+            Lesson2_HW3.Work work = new();
+            work.SummOfOddpositiveNumbers(13);
+            work.SummOfOddpositiveNumbers(-7);
+            work.SummOfOddpositiveNumbers(0);
+            work.SummOfOddpositiveNumbers(4);
+            work.SummOfOddpositiveNumbers(17);
+            var expectedSumm = 30;
+            var actualSumm = work.Summ;
+            Assert.AreEqual(expectedSumm, actualSumm);
+        }
     }
 }
