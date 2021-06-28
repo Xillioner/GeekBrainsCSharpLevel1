@@ -7,25 +7,8 @@ namespace Lesson2_HW4
     {
         const string USERLOGIN = "Xillioner";
         const string USERPASSWORD = "12345";
+
         public bool IsAuthorized { get; private set; }
-        public double? IndexBodyWeight
-        {
-            get
-            {
-                if (IsAuthorized)
-                {
-                    return indexBodyWeight;
-
-                }
-                return null;
-            }
-            private set { }
-        }
-
-        private double indexBodyWeight;
-        public double extraWeight { get; private set; }
-
-        public string IndexHelper { get { return IndexHelperInquire(); } private set { } }
 
         private readonly string[] stringSource = new string[21] {
         "Вы не авторизованны, завершение работы приложения!",
@@ -51,16 +34,15 @@ namespace Lesson2_HW4
         "1 - Логин",
         };
 
-        public void Authorize(string userLogin, string userPassword)
+        public void Authorize(User user)
         {
-            IsAuthorized = USERLOGIN == userLogin && USERPASSWORD == userPassword ? true : false;
+            IsAuthorized = USERLOGIN == user.UserLogin && USERPASSWORD == user.UserPassword ? true : false;
         }
 
         public void Print(int[] whereToPrint, int[] stringSource = null, string message = null)
         {
             Console.Clear();
             Console.OutputEncoding = Encoding.UTF8;
-
 
             if (whereToPrint.Length == 2)
                 Console.SetCursorPosition(whereToPrint[0], whereToPrint[1]);
@@ -73,7 +55,6 @@ namespace Lesson2_HW4
                 {
                     Console.WriteLine(this.stringSource[stringSource[i]]);
                 }
-
             }
             else if (message != null)
             {
@@ -83,25 +64,19 @@ namespace Lesson2_HW4
             {
                 Console.WriteLine($"\n {this.stringSource[1]}\n {this.stringSource[20]}\n");
             }
-
-
         }
 
-        public void AuthorizedArea()
+        public void AuthorizedArea(User user, int userInput)
         {
+            var height = user.Height / 100;
             if (IsAuthorized)
             {
-                Print(new int[] { 40, 0 }, new int[] { 7 });
-                var userInput = Convert.ToInt32(Console.ReadLine());
                 switch (userInput)
                 {
                     case 1:
-                        Print(new int[] { 40, 1 }, new int[] { 9 });
-                        var weight = Convert.ToDouble(Console.ReadLine());
-                        Print(new int[] { 40, 1 }, new int[] { 10 });
-                        var height = Convert.ToDouble(Console.ReadLine()) / 100;
-                        Bmi(weight, height);
-                        ExtraWeight(height);
+                        user.IndexBodyWeight = Bmi(user.Weight, height);
+                        user.ExtraWeight = ExtraWeight(height, user.IndexBodyWeight);
+                        user.IndexHelper = IndexHelperInquire(user.IndexBodyWeight);
                         break;
                     default:
                         Print(new int[] { 40, 1 }, new int[8]);
@@ -110,7 +85,7 @@ namespace Lesson2_HW4
             }
         }
 
-        private void ExtraWeight(double height)
+        private double ExtraWeight(double height, double indexBodyWeight)
         {
             double normalIndexMin = 18.5;
             double normalIndexMax = 25;
@@ -119,21 +94,24 @@ namespace Lesson2_HW4
             if (IsAuthorized && indexBodyWeight > normalIndexMax)
             {
                 extraIndex = indexBodyWeight - normalIndexMax;
-                extraWeight = extraIndex * Math.Pow(height, 2);
+                return extraIndex * Math.Pow(height, 2);
             }
             else if (IsAuthorized && indexBodyWeight < normalIndexMin)
             {
                 extraIndex = normalIndexMin - indexBodyWeight;
-                extraWeight = extraIndex * Math.Pow(height, 2);
+                return extraIndex * Math.Pow(height, 2);
             }
+            return 0;
         }
 
-        private void Bmi(double weight, double height)
+        private double Bmi(double weight, double height)
         {
             if (IsAuthorized)
-                indexBodyWeight = weight / Math.Pow(height, 2);
+                return weight / Math.Pow(height, 2);
+            return 0;
         }
-        private string IndexHelperInquire()
+
+        private string IndexHelperInquire(double indexBodyWeight)
         {
             if (IsAuthorized && indexBodyWeight < 17)
             {

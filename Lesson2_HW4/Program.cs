@@ -17,18 +17,21 @@ namespace Lesson2_HW4
     class Programs
     {
         private static Work work;
+        private static User user;
+
         static void Main(string[] args)
         {
             work = new();
-
-            string userLogin = null;
-            string userPassword = null;
+            user = new();
+            //string userLogin = null;
+            //string userPassword = null;
             work.Print(new int[] { 40, 0 });
             var menuStep = 0;
             do
             {
                 work.Print(new int[] { 40, 1 });
                 menuStep = Convert.ToInt32(Console.ReadLine());
+
                 switch (menuStep)
                 {
                     case 0:
@@ -41,10 +44,10 @@ namespace Lesson2_HW4
                             if (!work.IsAuthorized)
                             {
                                 work.Print(new int[] { 40, 0 }, new int[] { 5 });
-                                userLogin = Console.ReadLine();
+                                user.UserLogin = Console.ReadLine();
                                 work.Print(new int[] { 40, 0 }, new int[] { 6 });
-                                userPassword = Console.ReadLine();
-                                work.Authorize(userLogin, userPassword);
+                                user.UserPassword = Console.ReadLine();
+                                work.Authorize(user);
                             }
                             if (!work.IsAuthorized)
                                 count--;
@@ -53,10 +56,19 @@ namespace Lesson2_HW4
 
                         if (work.IsAuthorized)
                         {
-                            Authorized();
-                            work.AuthorizedArea();
-                            string extraWeight = work.extraWeight == 0 ? "" : $"{work.extraWeight:F1} Кг";
-                            work.Print(new int[] { 40, 1 }, null, $"{work.IndexBodyWeight} - {work.IndexHelper} {extraWeight}\n1 - Продолжить");
+                            AuthorizedMessage();
+
+                            work.Print(new int[] { 40, 0 }, new int[] { 7 });
+                            var userInput = Convert.ToInt32(Console.ReadLine());
+
+                            work.Print(new int[] { 40, 1 }, new int[] { 9 });
+                            user.Weight = Convert.ToDouble(Console.ReadLine());
+                            work.Print(new int[] { 40, 1 }, new int[] { 10 });
+                            user.Height = Convert.ToDouble(Console.ReadLine());
+
+                            work.AuthorizedArea(user, userInput);
+                            string extraWeight = user.ExtraWeight == 0 ? "" : $"{user.ExtraWeight:F1} Кг";
+                            work.Print(new int[] { 40, 1 }, null, $"BMI - {user.IndexBodyWeight:F1} - {user.IndexHelper} {extraWeight}\n1 - Продолжить");
                             Console.ReadKey();
                         }
                         else
@@ -70,11 +82,11 @@ namespace Lesson2_HW4
                 }
             } while (menuStep != 0);
         }
-        private static void Authorized()
+
+        private static void AuthorizedMessage()
         {
             work.Print(new int[] { 40, 0 }, new int[] { 3, 2 });
             Console.ReadKey();
-
         }
     }
 }
