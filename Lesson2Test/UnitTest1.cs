@@ -252,5 +252,27 @@ namespace Lesson2Test
             Assert.AreEqual(expectedIndexHelper, actualIndexHelper);
             Assert.AreEqual(expectedIndexBodyWeight, actualIndexBodyWeight);
         }
+        [TestMethod]
+        public void Lesson2_HW6CheckSumm()
+        {
+            Lesson2_HW6.Work work = new();
+            var a = 3;
+            var b = 1;
+            if (a > b)
+            {
+                work.Reverse = true;
+            }
+            else
+            {
+                work.Reverse = false;
+            }
+            work.RecursionSummAtoB(a, b);
+
+            var expectedSumm = 6;
+
+                var actualSumm = work.Summ;
+
+            Assert.AreEqual(expectedSumm, actualSumm);
+        }
     }
 }
